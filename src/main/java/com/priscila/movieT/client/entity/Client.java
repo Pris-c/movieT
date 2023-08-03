@@ -10,6 +10,10 @@ import java.time.LocalDate;
 @Entity
 public class Client {
 
+    private enum Type{
+        PF, PJ
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

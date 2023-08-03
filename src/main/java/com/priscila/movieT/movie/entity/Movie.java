@@ -1,18 +1,35 @@
 package com.priscila.movieT.movie.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
+
+    private enum Category {
+        ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
+    }
+
+    private enum AgeLimit {
+        AGE_12(12), AGE_14(14), AGE_16(14), AGE_18(18);
+
+        public int age;
+        AgeLimit(int age) {
+            this.age = age;
+        }
+
+    }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private String category;
     private int duration;
-    private int ageLimit;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
+    @Enumerated(EnumType.STRING)
+    private AgeLimit ageLimit;
 
 }

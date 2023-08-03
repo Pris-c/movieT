@@ -1,19 +1,29 @@
 package com.priscila.movieT.payment.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 public class Payment {
+
+    private enum Status{
+        AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
+    }
+
+    private enum Type{
+        CARTAO_CREDITO, CARTAO_DEBITO, MB_WAY, DINHEIRO
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String type;
-    private boolean String;
+
+    @Enumerated(EnumType.STRING)
+    private Type type;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
     private LocalDateTime dateTime;
 
 

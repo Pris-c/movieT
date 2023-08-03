@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.math.BigDecimal;
+
 @Entity
 public class Ticket {
 
@@ -14,8 +16,8 @@ public class Ticket {
     private Long saleId;
     private Long sessionId;
     private int seatNumber;
-    private double price;
-    private double discount;
-    private double finalPrice;
+    private BigDecimal price;
+    private BigDecimal discount;
+    private BigDecimal finalPrice;
 
 }
