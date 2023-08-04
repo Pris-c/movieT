@@ -1,9 +1,6 @@
-package com.priscila.movieT.client.entity;
+package com.priscila.movieT.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -17,7 +14,8 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long loginId;
+    @OneToOne
+    private Login login;
     private String nome;
     private LocalDate dateOfBirth;
     private String type;

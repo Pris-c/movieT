@@ -1,4 +1,4 @@
-package com.priscila.movieT.payment.entity;
+package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
 

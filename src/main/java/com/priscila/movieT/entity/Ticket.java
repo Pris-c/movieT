@@ -1,9 +1,6 @@
-package com.priscila.movieT.ticket.entity;
+package com.priscila.movieT.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -13,8 +10,10 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long saleId;
-    private Long sessionId;
+    @OneToOne
+    private Sale sale;
+    @ManyToOne
+    private Session session;
     private int seatNumber;
     private BigDecimal price;
     private BigDecimal discount;

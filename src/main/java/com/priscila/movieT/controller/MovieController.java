@@ -1,8 +1,7 @@
-package com.priscila.movieT.movie.controller;
+package com.priscila.movieT.controller;
 
-import com.priscila.movieT.movie.dao.MovieRepository;
-import com.priscila.movieT.movie.entity.Movie;
-import com.priscila.movieT.movie.service.MovieService;
+import com.priscila.movieT.entity.Movie;
+import com.priscila.movieT.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

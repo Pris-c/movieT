@@ -1,7 +1,7 @@
-package com.priscila.movieT.movie.service;
+package com.priscila.movieT.service;
 
-import com.priscila.movieT.movie.dao.MovieRepository;
-import com.priscila.movieT.movie.entity.Movie;
+import com.priscila.movieT.repository.MovieRepository;
+import com.priscila.movieT.entity.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
