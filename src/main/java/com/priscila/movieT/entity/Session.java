@@ -17,5 +17,13 @@ public class Session {
     private Room room;
     private LocalDateTime dateTime;
 
+    @Deprecated
+    public Session() {
+    }
 
+    public Session(Movie movie, Room room, LocalDateTime dateTime) {
+        this.movie = movie;
+        this.room = room;
+        this.dateTime = dateTime;
+    }
 }

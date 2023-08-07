@@ -22,7 +22,7 @@ public class MovieResponse {
     private Category category;
     private AgeLimit ageLimit;
 
-    public MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit) {
+    private MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit) {
         this.id = id;
         this.title = title;
         this.duration = duration;

@@ -20,4 +20,16 @@ public class Ticket {
     private BigDecimal discount;
     private BigDecimal finalPrice;
 
+    @Deprecated
+    public Ticket() {
+    }
+
+    public Ticket(Sale sale, Session session, int seatNumber, BigDecimal price, BigDecimal discount, BigDecimal finalPrice) {
+        this.sale = sale;
+        this.session = session;
+        this.seatNumber = seatNumber;
+        this.price = price;
+        this.discount = discount;
+        this.finalPrice = finalPrice;
+    }
 }

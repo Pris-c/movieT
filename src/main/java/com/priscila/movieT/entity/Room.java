@@ -12,14 +12,6 @@ public class Room {
         STANDARD, PREMIUM
     }
 
-    @Deprecated
-    public Room() {
-    }
-
-    public Room(Type type, int seats) {
-        this.type = type;
-        this.seats = seats;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +20,16 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private Type type;
     private int seats;
+
+
+    @Deprecated
+    public Room() {
+    }
+
+    public Room(Type type, int seats) {
+        this.type = type;
+        this.seats = seats;
+    }
 
     public UUID getId() {
         return id;

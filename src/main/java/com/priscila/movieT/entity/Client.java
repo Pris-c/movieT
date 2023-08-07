@@ -22,4 +22,23 @@ public class Client {
     private String type;
     private String document;
 
+    @Deprecated
+    public Client() {
+    }
+
+    public Client(Login login, String nome, LocalDate dateOfBirth, String type, String document) {
+        this.login = login;
+        this.nome = nome;
+        this.dateOfBirth = dateOfBirth;
+        this.type = type;
+        this.document = document;
+    }
+
+
+
+
+
+
+
+
 }

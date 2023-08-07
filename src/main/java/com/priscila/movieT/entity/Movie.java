@@ -7,7 +7,6 @@ import java.util.UUID;
 @Entity
 public class Movie {
 
-
     public enum Category {
         ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
     }
@@ -21,18 +20,6 @@ public class Movie {
         }
     }
 
-
-    @Deprecated
-    public Movie() {
-    }
-
-    public Movie(String title, int duration, Category category, AgeLimit ageLimit) {
-        this.title = title;
-        this.duration = duration;
-        this.category = category;
-        this.ageLimit = ageLimit;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -44,6 +31,17 @@ public class Movie {
 
     @Enumerated(EnumType.STRING)
     private AgeLimit ageLimit;
+
+    @Deprecated
+    public Movie() {
+    }
+
+    public Movie(String title, int duration, Category category, AgeLimit ageLimit) {
+        this.title = title;
+        this.duration = duration;
+        this.category = category;
+        this.ageLimit = ageLimit;
+    }
 
 
     public UUID getId() {

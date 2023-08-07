@@ -14,4 +14,13 @@ public class Sale {
     private UUID paymentId;
     private double totalPrice;
 
+    @Deprecated
+    public Sale() {
+    }
+
+    public Sale(Client client, UUID paymentId, double totalPrice) {
+        this.client = client;
+        this.paymentId = paymentId;
+        this.totalPrice = totalPrice;
+    }
 }

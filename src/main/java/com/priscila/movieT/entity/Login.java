@@ -17,6 +17,9 @@ public class Login {
     private String email;
     private String password;
 
+    @Deprecated
+    public Login() {
+    }
 
     public Login(String username, String email, String password) {
         this.username = username;
