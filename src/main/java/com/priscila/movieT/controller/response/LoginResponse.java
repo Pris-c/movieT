@@ -1,14 +1,17 @@
 package com.priscila.movieT.controller.response;
 
 import com.priscila.movieT.entity.Login;
+
+import java.util.UUID;
+
 public class LoginResponse {
 
-    private Long id;
+    private UUID id;
     private String username;
     private String email;
     private String password;
 
-    public LoginResponse(Long id, String username, String email, String password) {
+    public LoginResponse(UUID id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -19,7 +22,7 @@ public class LoginResponse {
         return new LoginResponse(login.getId(), login.getUsername(), login.getEmail(), login.getPassword());
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

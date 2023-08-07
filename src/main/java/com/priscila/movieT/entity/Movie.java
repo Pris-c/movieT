@@ -2,6 +2,8 @@ package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 public class Movie {
 
@@ -33,7 +35,7 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
     private String title;
     private int duration;
 
@@ -44,7 +46,7 @@ public class Movie {
     private AgeLimit ageLimit;
 
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

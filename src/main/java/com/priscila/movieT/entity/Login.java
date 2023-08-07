@@ -5,12 +5,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.UUID;
+
 @Entity
 public class Login {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
     private String username;
     private String email;
     private String password;
@@ -22,7 +24,7 @@ public class Login {
         this.password = password;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

@@ -3,6 +3,7 @@ package com.priscila.movieT.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 public class Client {
@@ -13,7 +14,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
     @OneToOne
     private Login login;
     private String nome;

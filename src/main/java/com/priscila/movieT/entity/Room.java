@@ -3,6 +3,7 @@ package com.priscila.movieT.entity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Entity
 public class Room {
@@ -22,13 +23,13 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     @Enumerated(EnumType.STRING)
     private Type type;
     private int seats;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

@@ -3,13 +3,14 @@ package com.priscila.movieT.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Entity
 public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
     @OneToOne
     private Sale sale;
     @ManyToOne

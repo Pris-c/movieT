@@ -2,6 +2,8 @@ package com.priscila.movieT.controller.response;
 
 import com.priscila.movieT.entity.Movie;
 
+import java.util.UUID;
+
 public class MovieResponse {
     public enum Category {
         ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
@@ -14,13 +16,13 @@ public class MovieResponse {
         }
     }
 
-    private Long id;
+    private UUID id;
     private String title;
     private int duration;
     private Category category;
     private AgeLimit ageLimit;
 
-    public MovieResponse(Long id, String title, int duration, Category category, AgeLimit ageLimit) {
+    public MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit) {
         this.id = id;
         this.title = title;
         this.duration = duration;
@@ -35,7 +37,7 @@ public class MovieResponse {
                 MovieResponse.AgeLimit.valueOf(movie.getAgeLimit().toString()));
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

@@ -3,6 +3,7 @@ package com.priscila.movieT.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class Payment {
@@ -17,7 +18,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private UUID id;
 
     @Enumerated(EnumType.STRING)
     private Type type;
