@@ -23,5 +23,4 @@ public class RoomController {
         return RoomResponse.valueOf(room);
     }
 
-
 }

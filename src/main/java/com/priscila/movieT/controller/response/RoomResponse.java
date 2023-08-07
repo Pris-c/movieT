@@ -1,7 +1,6 @@
 package com.priscila.movieT.controller.response;
 
 import com.priscila.movieT.entity.Room;
-import jakarta.persistence.*;
 
 public class RoomResponse {
     private enum Type{

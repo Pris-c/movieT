@@ -1,48 +1,39 @@
-package com.priscila.movieT.entity;
+package com.priscila.movieT.controller.response;
 
-import jakarta.persistence.*;
+import com.priscila.movieT.entity.Movie;
 
-@Entity
-public class Movie {
-
-
+public class MovieResponse {
     public enum Category {
         ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
     }
-
     public enum AgeLimit {
         AGE_12(12), AGE_14(14), AGE_16(14), AGE_18(18);
-
         public int age;
         AgeLimit(int age) {
             this.age = age;
         }
     }
 
+    private Long id;
+    private String title;
+    private int duration;
+    private Category category;
+    private AgeLimit ageLimit;
 
-    @Deprecated
-    public Movie() {
-    }
-
-    public Movie(String title, int duration, Category category, AgeLimit ageLimit) {
+    public MovieResponse(Long id, String title, int duration, Category category, AgeLimit ageLimit) {
+        this.id = id;
         this.title = title;
         this.duration = duration;
         this.category = category;
         this.ageLimit = ageLimit;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String title;
-    private int duration;
-
-    @Enumerated(EnumType.STRING)
-    private Category category;
-
-    @Enumerated(EnumType.STRING)
-    private AgeLimit ageLimit;
-
+    public static MovieResponse valueOf(Movie movie){
+        return new MovieResponse(
+                movie.getId(), movie.getTitle(), movie.getDuration(),
+                MovieResponse.Category.valueOf(movie.getCategory().toString()),
+                MovieResponse.AgeLimit.valueOf(movie.getAgeLimit().toString()));
+    }
 
     public Long getId() {
         return id;
@@ -63,4 +54,5 @@ public class Movie {
     public AgeLimit getAgeLimit() {
         return ageLimit;
     }
+
 }

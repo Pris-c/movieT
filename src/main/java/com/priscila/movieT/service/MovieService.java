@@ -10,8 +10,7 @@ public class MovieService {
     @Autowired
     MovieRepository movieRepository;
 
-    public Movie save(Movie movie){
-        System.out.println("Saving movie");
+    public Movie create(Movie movie){
         return movieRepository.save(movie);
     }
 
