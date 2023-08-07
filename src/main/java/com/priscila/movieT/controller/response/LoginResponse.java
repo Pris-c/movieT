@@ -1,25 +1,22 @@
-package com.priscila.movieT.entity;
+package com.priscila.movieT.controller.response;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.priscila.movieT.entity.Login;
+public class LoginResponse {
 
-@Entity
-public class Login {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String email;
     private String password;
 
-
-    public Login(String username, String email, String password) {
+    public LoginResponse(Long id, String username, String email, String password) {
+        this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public static LoginResponse valueOf(Login login){
+        return new LoginResponse(login.getId(), login.getUsername(), login.getEmail(), login.getPassword());
     }
 
     public Long getId() {

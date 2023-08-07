@@ -11,7 +11,6 @@ public class RoomRequest {
     private int seats;
 
 
-
     public Room getRoom(){
         return new Room(Room.Type.valueOf(this.type.toString()), this.seats);
     }
