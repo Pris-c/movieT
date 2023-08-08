@@ -17,7 +17,6 @@ public class MovieController {
 
     @PostMapping
     public MovieResponse create(@RequestBody MovieRequest movieRequest){
-        //System.out.println("POST: " + movieRequest.getMovie().getTitle());
         var movie = movieRequest.getMovie();        //cria objeto Movie a partir do objeto MovieRequest
         movie = movieService.create(movie);         //chama metodo create do Service
         return MovieResponse.valueOf(movie);        //cria e retorna objeto Response

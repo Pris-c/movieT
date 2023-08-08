@@ -1,6 +1,5 @@
 package com.priscila.movieT.service;
 
-import com.priscila.movieT.controller.response.SessionResponse;
 import com.priscila.movieT.entity.Session;
 import com.priscila.movieT.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +18,13 @@ public class SessionService {
     RoomService roomService;
 
     public Session create(Session session){
-        var idMovie = movieService.findById(session.getMovie().getId());
-        var idRoom = roomService.findById(session.getRoom().getId());
-        if (idRoom.getId()==null || idMovie.getId()==null){
+        var movie = movieService.findById(session.getMovie().getId());
+        var room = roomService.findById(session.getRoom().getId());
+        if (room.getId()==null || movie.getId()==null){
             return new Session();
         }
-
+        //ou usar setters
+        session = new Session(movie, room, session.getDateTime());
         return sessionRepository.save(session);
     }
 }

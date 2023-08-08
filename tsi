@@ -1,0 +1,13 @@
+[33m98f56fa[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Implementation of Request/Response and method create() for Session Entity
+[33m6f841a2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Implementation of Request/Response and method create() for Client Entity
+[33mf0b9344[m Implementation of Request/Response and method create() for Payment Entity
+[33m696eff3[m Ids type changed to UUID
+[33m2950914[m Implementation of Request/Response and method create() for Login Entity
+[33m7e0f647[m Implementation of Request/Response and method create() for Movie Entity
+[33mfc63411[m Beginning of MVC architecture
+[33m2092455[m Change of some attributes to ENUM
+[33m7ec5842[m Added UML diagram
+[33m6b9d34c[m Entitys creation
+[33mfba36db[m Estrutura do Projeto
+[33me5bd099[m Update .gitignore
+[33me35f5bf[m Initial commit

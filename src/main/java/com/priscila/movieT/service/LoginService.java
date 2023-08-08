@@ -15,7 +15,6 @@ public class LoginService {
     LoginRepository loginRepository;
 
     public Login create(Login login){
-
         return loginRepository.save(login);
     }
 

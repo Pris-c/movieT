@@ -2,6 +2,7 @@ package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -11,16 +12,33 @@ public class Sale {
     private UUID id;
     @ManyToOne
     private Client client;
-    private UUID paymentId;
-    private double totalPrice;
+    @OneToOne
+    private Payment payment;
+    private BigDecimal totalPrice;
 
     @Deprecated
     public Sale() {
     }
 
-    public Sale(Client client, UUID paymentId, double totalPrice) {
+    public Sale(Client client, Payment payment, BigDecimal totalPrice) {
         this.client = client;
-        this.paymentId = paymentId;
+        this.payment = payment;
         this.totalPrice = totalPrice;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 }
