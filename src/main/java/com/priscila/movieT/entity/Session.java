@@ -26,4 +26,20 @@ public class Session {
         this.room = room;
         this.dateTime = dateTime;
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
 }

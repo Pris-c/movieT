@@ -5,6 +5,9 @@ import com.priscila.movieT.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class RoomService {
 
@@ -14,5 +17,11 @@ public class RoomService {
     public Room create(Room room){
         return roomRepository.save(room);
     }
+
+    public Room findById(UUID roomId){
+        Optional<Room> optionalRoom = roomRepository.findById(roomId);
+        return optionalRoom.orElse(new Room());
+    }
+
 
 }
