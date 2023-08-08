@@ -22,7 +22,7 @@ public class ClientController {
         client = clientService.create(client);
 
         if (client.getId() == null){
-            return ClientResponse.getEmptyClient();
+            return ClientResponse.getEmptyClientResponse();
         }
         return ClientResponse.valueOf(client);
     }

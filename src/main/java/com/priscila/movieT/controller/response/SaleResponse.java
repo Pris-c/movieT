@@ -28,7 +28,7 @@ public class SaleResponse {
         return new SaleResponse(sale.getId(), sale.getClient(), sale.getPayment(), sale.getTotalPrice());
     }
 
-    public static SaleResponse getEmptySale(){
+    public static SaleResponse getEmptySaleResponse(){
         return new SaleResponse();
     }
 

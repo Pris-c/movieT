@@ -1,37 +1,45 @@
-package com.priscila.movieT.entity;
+package com.priscila.movieT.controller.response;
 
-import jakarta.persistence.*;
+import com.priscila.movieT.entity.Sale;
+import com.priscila.movieT.entity.Session;
+import com.priscila.movieT.entity.Ticket;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity
-public class Ticket {
+public class TicketResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @OneToOne
     private Sale sale;
-    @ManyToOne
     private Session session;
     private int seatNumber;
     private BigDecimal price;
     private BigDecimal discount;
     private BigDecimal finalPrice;
 
-    @Deprecated
-    public Ticket() {
+
+    private TicketResponse() {
     }
 
-    public Ticket(Sale sale, Session session, int seatNumber, BigDecimal price, BigDecimal discount) {
+    public TicketResponse(UUID id, Sale sale, Session session, int seatNumber, BigDecimal price, BigDecimal discount, BigDecimal finalPrice) {
+        this.id = id;
         this.sale = sale;
         this.session = session;
         this.seatNumber = seatNumber;
         this.price = price;
         this.discount = discount;
-        this.finalPrice = this.price.multiply(this.discount);
+        this.finalPrice = finalPrice;
     }
+
+    public static TicketResponse valueOf(Ticket ticket){
+        return new TicketResponse(ticket.getId(), ticket.getSale(), ticket.getSession(), ticket.getSeatNumber(), ticket.getPrice(), ticket.getDiscount(), ticket.getFinalPrice());
+
+    }
+
+    public static TicketResponse getEmptyTicketResponse(){
+        return new TicketResponse();
+    }
+
 
     public UUID getId() {
         return id;

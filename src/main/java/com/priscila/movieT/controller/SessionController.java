@@ -22,7 +22,7 @@ public class SessionController {
         session = sessionService.create(session);
 
         if (session.getId() == null){
-            return SessionResponse.getEmptySession();
+            return SessionResponse.getEmptySessionResponse();
         }
 
         return SessionResponse.valueOf(session);

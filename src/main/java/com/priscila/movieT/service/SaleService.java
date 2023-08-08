@@ -7,6 +7,9 @@ import com.priscila.movieT.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class SaleService {
 
@@ -26,8 +29,12 @@ public class SaleService {
         if (client.getId()==null || payment.getId()==null){
             return new Sale();
         }
-
         return saleRepository.save(sale);
+    }
+
+    public Sale findById(UUID saleId){
+        Optional<Sale> optionalSale = saleRepository.findById(saleId);
+        return optionalSale.orElse(new Sale());
     }
 
 }

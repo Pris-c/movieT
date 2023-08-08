@@ -28,7 +28,7 @@ public class SessionResponse {
         return new SessionResponse(session.getId(), session.getMovie(), session.getRoom(), session.getDateTime());
     }
 
-    public static SessionResponse getEmptySession(){
+    public static SessionResponse getEmptySessionResponse(){
         return new SessionResponse();
     }
 

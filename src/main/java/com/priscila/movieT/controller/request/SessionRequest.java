@@ -3,7 +3,6 @@ package com.priscila.movieT.controller.request;
 import com.priscila.movieT.entity.Movie;
 import com.priscila.movieT.entity.Room;
 import com.priscila.movieT.entity.Session;
-import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDateTime;
 

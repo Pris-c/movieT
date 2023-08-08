@@ -31,7 +31,7 @@ public class ClientResponse {
         return new ClientResponse(client.getId(), client.getLogin(), client.getNome(), client.getDateOfBirth(), ClientResponse.Type.valueOf(client.getType().toString()), client.getDocument());
     }
 
-    public static ClientResponse getEmptyClient(){
+    public static ClientResponse getEmptyClientResponse(){
         return new ClientResponse();
     }
 

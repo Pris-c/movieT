@@ -24,7 +24,7 @@ public class SaleController {
         sale = saleService.create(sale);
 
         if (sale.getId()==null){
-            return SaleResponse.getEmptySale();
+            return SaleResponse.getEmptySaleResponse();
         }
         return SaleResponse.valueOf(sale);
     }

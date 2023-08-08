@@ -1,9 +1,13 @@
 package com.priscila.movieT.service;
 
+import com.priscila.movieT.entity.Sale;
 import com.priscila.movieT.entity.Session;
 import com.priscila.movieT.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class SessionService {
@@ -27,4 +31,10 @@ public class SessionService {
         session = new Session(movie, room, session.getDateTime());
         return sessionRepository.save(session);
     }
+
+    public Session findById(UUID sessionId){
+        Optional<Session> optionalSale = sessionRepository.findById(sessionId);
+        return optionalSale.orElse(new Session());
+    }
+
 }
