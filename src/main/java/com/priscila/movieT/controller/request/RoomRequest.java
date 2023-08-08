@@ -3,10 +3,6 @@ package com.priscila.movieT.controller.request;
 import com.priscila.movieT.entity.Room;
 public class RoomRequest {
 
-    private enum Type{
-        STANDARD, PREMIUM
-    }
-
     private Type type;
     private int seats;
 
@@ -21,6 +17,11 @@ public class RoomRequest {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+
+    private enum Type{
+        STANDARD, PREMIUM
     }
 
 }

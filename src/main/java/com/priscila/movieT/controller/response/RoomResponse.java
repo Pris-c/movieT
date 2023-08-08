@@ -5,9 +5,6 @@ import com.priscila.movieT.entity.Room;
 import java.util.UUID;
 
 public class RoomResponse {
-    private enum Type{
-        STANDARD, PREMIUM
-    }
 
     private UUID id;
     private Type type;
@@ -33,5 +30,9 @@ public class RoomResponse {
 
     public int getSeats() {
         return seats;
+    }
+
+    private enum Type{
+        STANDARD, PREMIUM
     }
 }

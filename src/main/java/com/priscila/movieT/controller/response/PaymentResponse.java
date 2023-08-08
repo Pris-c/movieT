@@ -4,18 +4,10 @@ import com.priscila.movieT.entity.Payment;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class PaymentResponse {
-
-
-    public enum Status{
-        AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
-    }
-
-    public enum Type{
-        CARTAO_CREDITO, CARTAO_DEBITO, MB_WAY, DINHEIRO
-    }
 
     private UUID id;
     private Payment.Type type;
@@ -50,5 +42,15 @@ public class PaymentResponse {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
+
+
+    public enum Status{
+        AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
+    }
+
+    public enum Type{
+        CARTAO_CREDITO, CARTAO_DEBITO, MB_WAY, DINHEIRO
+    }
+
 
 }

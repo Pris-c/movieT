@@ -5,22 +5,12 @@ import com.priscila.movieT.entity.Movie;
 import java.util.UUID;
 
 public class MovieResponse {
-    public enum Category {
-        ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
-    }
-    public enum AgeLimit {
-        AGE_12(12), AGE_14(14), AGE_16(14), AGE_18(18);
-        public int age;
-        AgeLimit(int age) {
-            this.age = age;
-        }
-    }
-
     private UUID id;
     private String title;
     private int duration;
     private Category category;
     private AgeLimit ageLimit;
+
 
     private MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit) {
         this.id = id;
@@ -55,6 +45,17 @@ public class MovieResponse {
 
     public AgeLimit getAgeLimit() {
         return ageLimit;
+    }
+
+    public enum Category {
+        ACAO, AVENTURA, COMEDIA, DRAMA, TERROR, ROMANCE, FICCAO_CIENTIFICA, FANTASIA, HISTORICO
+    }
+    public enum AgeLimit {
+        AGE_12(12), AGE_14(14), AGE_16(14), AGE_18(18);
+        public int age;
+        AgeLimit(int age) {
+            this.age = age;
+        }
     }
 
 }
