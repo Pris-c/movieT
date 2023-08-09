@@ -1,13 +1,12 @@
 package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 public class Ticket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -19,18 +18,22 @@ public class Ticket {
     private BigDecimal price;
     private BigDecimal discount;
     private BigDecimal finalPrice;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @Deprecated
     public Ticket() {
     }
 
-    public Ticket(Sale sale, Session session, int seatNumber, BigDecimal price, BigDecimal discount) {
+    public Ticket(Sale sale, Session session, int seatNumber, BigDecimal price, BigDecimal discount, LocalDateTime createdAt) {
         this.sale = sale;
         this.session = session;
         this.seatNumber = seatNumber;
         this.price = price;
         this.discount = discount;
-        this.finalPrice = this.price.multiply(this.discount);
+        this.finalPrice = price.multiply(discount);
+        this.createdAt = createdAt;
+        this.updatedAt = createdAt;
     }
 
     public UUID getId() {
@@ -59,5 +62,13 @@ public class Ticket {
 
     public BigDecimal getFinalPrice() {
         return finalPrice;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 }

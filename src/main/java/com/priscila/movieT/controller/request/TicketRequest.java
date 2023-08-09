@@ -5,6 +5,7 @@ import com.priscila.movieT.entity.Session;
 import com.priscila.movieT.entity.Ticket;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class TicketRequest {
 
@@ -13,11 +14,12 @@ public class TicketRequest {
     private int seatNumber;
     private BigDecimal price;
     private BigDecimal discount;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    //private BigDecimal finalPrice;
 
     public Ticket getTicket(){
-        return new Ticket(this.sale, this.session, this.seatNumber, this.price, this.discount);
+        return new Ticket(this.sale, this.session, this.seatNumber, this.price, this.discount, this.createdAt);
 
     }
 
@@ -41,4 +43,11 @@ public class TicketRequest {
         this.discount = discount;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

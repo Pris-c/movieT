@@ -9,11 +9,12 @@ public class PaymentRequest {
     private Type type;
     private Status status;
     private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
 
 
     public Payment getPayment(){
         return new Payment(Payment.Type.valueOf(this.type.toString()),
-                Payment.Status.valueOf(this.status.toString()), this.dateTime);
+                Payment.Status.valueOf(this.status.toString()), this.dateTime, this.createdAt);
     }
 
     public void setType(Type type) {
@@ -28,7 +29,11 @@ public class PaymentRequest {
         this.dateTime = dateTime;
     }
 
-    private enum Status{
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+     private enum Status{
         AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
     }
 

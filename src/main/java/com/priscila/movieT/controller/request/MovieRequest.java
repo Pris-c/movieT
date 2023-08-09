@@ -1,16 +1,21 @@
 package com.priscila.movieT.controller.request;
 
 import com.priscila.movieT.entity.Movie;
+
+import java.time.LocalDateTime;
+
 public class MovieRequest {
 
     private String title;
     private int duration;
     private Category category;
     private AgeLimit ageLimit;
+    private LocalDateTime createdAt;
 
     public Movie getMovie(){
         return new Movie(this.title, this.duration, Movie.Category.valueOf(
-                this.category.toString()), Movie.AgeLimit.valueOf(this.ageLimit.toString())
+                this.category.toString()), Movie.AgeLimit.valueOf(this.ageLimit.toString()),
+                this.createdAt
                 );
     }
 
@@ -28,6 +33,10 @@ public class MovieRequest {
 
     public void setAgeLimit(AgeLimit ageLimit) {
         this.ageLimit = ageLimit;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     private enum Category {

@@ -28,7 +28,7 @@ public class SessionService {
             return new Session();
         }
         //ou usar setters
-        session = new Session(movie, room, session.getDateTime());
+        session = new Session(movie, room, session.getDateTime(), session.getCreatedAt());
         return sessionRepository.save(session);
     }
 
