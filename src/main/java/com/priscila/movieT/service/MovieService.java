@@ -17,7 +17,9 @@ public class MovieService {
     public Movie create(Movie movie){
         List<Movie> movies = movieRepository.findByTitle(movie.getTitle());
         if (!movies.isEmpty()){
+            //throw new ExemploExcecao("Este filme já está cadastrado");
             return new Movie();
+
         }
         return movieRepository.save(movie);
     }

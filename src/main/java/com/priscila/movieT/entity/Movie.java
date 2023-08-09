@@ -2,6 +2,7 @@ package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.UUID;
 
 @Entity
@@ -32,8 +33,8 @@ public class Movie {
         this.duration = duration;
         this.category = category;
         this.ageLimit = ageLimit;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now(ZoneId.of("+00:00"));
+        this.updatedAt = LocalDateTime.now(ZoneId.of("+00:00"));
     }
 
 

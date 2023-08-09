@@ -6,14 +6,13 @@ import java.time.LocalDateTime;
 
 public class RoomRequest {
 
+    private String name;
     private Type type;
     private int seats;
-    private String name;
 
-    private LocalDateTime createdAt;
 
     public Room getRoom(){
-        return new Room(Room.Type.valueOf(this.type.toString()), this.name, this.seats, this.createdAt);
+        return new Room(this.name, Room.Type.valueOf(this.type.toString()), this.seats);
     }
 
     public void setType(Type type) {
@@ -27,11 +26,6 @@ public class RoomRequest {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
 
     private enum Type{
         STANDARD, PREMIUM
