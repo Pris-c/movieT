@@ -2,6 +2,7 @@ package com.priscila.movieT.controller.response;
 
 import com.priscila.movieT.entity.Movie;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class MovieResponse {
@@ -10,21 +11,28 @@ public class MovieResponse {
     private int duration;
     private Category category;
     private AgeLimit ageLimit;
+    private LocalDateTime createdAt;
 
+    public MovieResponse() {
+    }
 
-    private MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit) {
+    public MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.duration = duration;
         this.category = category;
         this.ageLimit = ageLimit;
+        this.createdAt = createdAt;
     }
 
     public static MovieResponse valueOf(Movie movie){
-        return new MovieResponse(
-                movie.getId(), movie.getTitle(), movie.getDuration(),
-                MovieResponse.Category.valueOf(movie.getCategory().toString()),
-                MovieResponse.AgeLimit.valueOf(movie.getAgeLimit().toString()));
+        return new MovieResponse(movie.getId(), movie.getTitle(), movie.getDuration(),
+                                MovieResponse.Category.valueOf(movie.getCategory().toString()),
+                                MovieResponse.AgeLimit.valueOf(movie.getAgeLimit().toString()), movie.getCreatedAt());
+    }
+
+    public static MovieResponse getEmptyMovieResponse(){
+        return new MovieResponse();
     }
 
     public UUID getId() {
@@ -45,6 +53,10 @@ public class MovieResponse {
 
     public AgeLimit getAgeLimit() {
         return ageLimit;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
     public enum Category {

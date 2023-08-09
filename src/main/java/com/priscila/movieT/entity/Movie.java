@@ -1,7 +1,6 @@
 package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -28,13 +27,13 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int duration, Category category, AgeLimit ageLimit, LocalDateTime createdAt) {
+    public Movie(String title, int duration, Category category, AgeLimit ageLimit) {
         this.title = title;
         this.duration = duration;
         this.category = category;
         this.ageLimit = ageLimit;
-        this.createdAt = createdAt;
-        this.updatedAt = createdAt;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
 

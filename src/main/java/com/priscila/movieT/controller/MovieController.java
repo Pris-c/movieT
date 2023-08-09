@@ -17,9 +17,12 @@ public class MovieController {
 
     @PostMapping
     public MovieResponse create(@RequestBody MovieRequest movieRequest){
-        var movie = movieRequest.getMovie();        //cria objeto Movie a partir do objeto MovieRequest
-        movie = movieService.create(movie);         //chama metodo create do Service
-        return MovieResponse.valueOf(movie);        //cria e retorna objeto Response
+        var movie = movieRequest.getMovie();
+        movie = movieService.create(movie);
+        if (movie.getId()==null){
+            return MovieResponse.getEmptyMovieResponse();
+        }
+        return MovieResponse.valueOf(movie);
     }
 
 
