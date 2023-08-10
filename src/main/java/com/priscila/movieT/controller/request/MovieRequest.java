@@ -1,8 +1,9 @@
 package com.priscila.movieT.controller.request;
 
 import com.priscila.movieT.entity.Movie;
-public class MovieRequest {
+import java.time.LocalDateTime;
 
+public class MovieRequest {
     private String title;
     private int duration;
     private Category category;

@@ -11,9 +11,10 @@ public class SessionRequest {
     private Movie movie;
     private Room room;
     private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
 
     public Session getSession(){
-        return new Session(this.movie, this.room, this.dateTime);
+        return new Session(this.movie, this.room, this.dateTime, this.createdAt);
     }
 
     public void setMovie(Movie movie) {
@@ -26,5 +27,9 @@ public class SessionRequest {
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

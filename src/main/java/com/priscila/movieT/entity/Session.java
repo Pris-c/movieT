@@ -1,7 +1,6 @@
 package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,15 +15,19 @@ public class Session {
     @ManyToOne
     private Room room;
     private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @Deprecated
     public Session() {
     }
 
-    public Session(Movie movie, Room room, LocalDateTime dateTime) {
+    public Session(Movie movie, Room room, LocalDateTime dateTime, LocalDateTime createdAt) {
         this.movie = movie;
         this.room = room;
         this.dateTime = dateTime;
+        this.createdAt = createdAt;
+        this.updatedAt = createdAt;
     }
 
     public UUID getId() {
@@ -41,5 +44,13 @@ public class Session {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 }

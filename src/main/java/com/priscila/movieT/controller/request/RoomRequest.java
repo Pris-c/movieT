@@ -1,14 +1,18 @@
 package com.priscila.movieT.controller.request;
 
 import com.priscila.movieT.entity.Room;
+
+import java.time.LocalDateTime;
+
 public class RoomRequest {
 
+    private String name;
     private Type type;
     private int seats;
 
 
     public Room getRoom(){
-        return new Room(Room.Type.valueOf(this.type.toString()), this.seats);
+        return new Room(this.name, Room.Type.valueOf(this.type.toString()), this.seats);
     }
 
     public void setType(Type type) {
@@ -19,6 +23,9 @@ public class RoomRequest {
         this.seats = seats;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     private enum Type{
         STANDARD, PREMIUM

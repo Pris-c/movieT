@@ -20,6 +20,9 @@ public class RoomController {
     public RoomResponse create(@RequestBody RoomRequest roomRequest){
         var room = roomRequest.getRoom();
         room = roomService.create(room);
+        if (room.getId()==null){
+            return RoomResponse.getEmptyRoomResponse();
+        }
         return RoomResponse.valueOf(room);
     }
 

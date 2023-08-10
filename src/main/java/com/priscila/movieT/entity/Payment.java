@@ -9,14 +9,6 @@ import java.util.UUID;
 @Entity
 public class Payment {
 
-    public enum Status{
-        AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
-    }
-
-    public enum Type{
-        CARTAO_CREDITO, CARTAO_DEBITO, MB_WAY, DINHEIRO
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
@@ -27,15 +19,19 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status status;
     private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @Deprecated
     public Payment() {
     }
 
-    public Payment(Type type, Status status, LocalDateTime dateTime) {
+    public Payment(Type type, Status status, LocalDateTime dateTime, LocalDateTime createdAt) {
         this.type = type;
         this.status = status;
         this.dateTime = dateTime;
+        this.createdAt = createdAt;
+        this.updatedAt = createdAt;
     }
 
     public UUID getId() {
@@ -53,4 +49,21 @@ public class Payment {
     public LocalDateTime getDateTime() {
         return dateTime;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public enum Status{
+        AGUARDANDO_CONFIRMACAO, CONFIRMADO, RECUSADO, CANCELADO
+    }
+
+    public enum Type{
+        CARTAO_CREDITO, CARTAO_DEBITO, MB_WAY, DINHEIRO
+    }
+
 }

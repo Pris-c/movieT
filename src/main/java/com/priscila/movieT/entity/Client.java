@@ -1,8 +1,8 @@
 package com.priscila.movieT.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -17,18 +17,25 @@ public class Client {
     private LocalDate dateOfBirth;
     private Type type;
     private String document;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+
 
     @Deprecated
     public Client() {
     }
 
-    public Client(Login login, String nome, LocalDate dateOfBirth, Type type, String document) {
+    public Client(Login login, String nome, LocalDate dateOfBirth, Type type, String document, LocalDateTime createdAt) {
         this.login = login;
         this.nome = nome;
         this.dateOfBirth = dateOfBirth;
         this.type = type;
         this.document = document;
+        this.createdAt = createdAt;
+        this.updatedAt = createdAt;
     }
+
 
     public UUID getId() {
         return id;
@@ -53,6 +60,15 @@ public class Client {
     public String getDocument() {
         return document;
     }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
 
     public enum Type{
         PF, PJ
