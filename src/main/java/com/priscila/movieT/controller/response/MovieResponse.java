@@ -13,10 +13,10 @@ public class MovieResponse {
     private AgeLimit ageLimit;
     private LocalDateTime createdAt;
 
-    public MovieResponse() {
+    private MovieResponse() {
     }
 
-    public MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit, LocalDateTime createdAt) {
+    private MovieResponse(UUID id, String title, int duration, Category category, AgeLimit ageLimit, LocalDateTime createdAt) {
         this.id = id;
         this.title = title;
         this.duration = duration;

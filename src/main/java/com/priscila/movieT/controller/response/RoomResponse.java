@@ -14,10 +14,10 @@ public class RoomResponse {
     private LocalDateTime createdAt;
 
 
-    public RoomResponse() {
+    private RoomResponse() {
     }
 
-    public RoomResponse(UUID id, String name, Type type, int seats, LocalDateTime createdAt) {
+    private RoomResponse(UUID id, String name, Type type, int seats, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.type = type;
